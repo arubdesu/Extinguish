@@ -16,7 +16,7 @@ import sys
 import uuid
 
 
-def build_payload(bundle_id, payload_id, in_uuid):
+def build_payload(bundle_id):
     """populates payload with bundle_id, returns array"""
     forced_dict = {"mcx_preference_settings": {"SUAutomaticallyUpdate": False,
                                                "SUEnableAutomaticChecks": False,
@@ -24,20 +24,16 @@ def build_payload(bundle_id, payload_id, in_uuid):
                   }
     bundle_dict = {"Forced": [forced_dict]}
     content_dict = {bundle_id: bundle_dict}
-    payload_dict = {"PayloadContent": content_dict,
-                    "PayloadEnabled": True,
-                    "PayloadIdentifier": payload_id,
-                    "PayloadType": "com.apple.ManagedClient.preferences",
-                    "PayloadUUID": in_uuid,
-                    "PayloadVersion": 1,
-                   }
-    return payload_dict
+    return content_dict
 
 
-def integrate_whole(payload, github_acct, org, out_uuid):
+def integrate_whole(payload, org, out_uuid):
     """integrates payload into whole of profile, returns dict"""
     if type(payload) != list:
         payload = [payload]
+    else:
+        nested = {"PayloadContent": payload}
+        payload = nested
     finished_profile = {"PayloadContent": payload,
                         "PayloadOrganization": org,
                         "PayloadRemovalDisallowed": True,
@@ -84,16 +80,22 @@ def main():
                 appname = bundle_id.split('.')[-1]
                 in_uuid = str(uuid.uuid4())
                 payload_id = "SparkleDisabler." + out_uuid + ".alacarte.customsettings." + in_uuid
-                payload = build_payload(bundle_id, payload_id, in_uuid)
-                whole = integrate_whole(payload, options.profile_id,
-                                        options.org, out_uuid)
+                payload = build_payload(bundle_id)
+                payload_dict = {"PayloadContent": payload,
+                                "PayloadEnabled": True,
+                                "PayloadIdentifier": payload_id,
+                                "PayloadType": "com.apple.ManagedClient.preferences",
+                                "PayloadUUID": in_uuid,
+                                "PayloadVersion": 1,
+                               }
+                inside_dict = [payload_dict]
+                whole = integrate_whole(inside_dict, options.org, out_uuid)
                 extend_dict = {"PayloadDescription": "Custom settings to disable "
                                "sparkle updates for %s.app" % appname,
                                "PayloadDisplayName": "SparkleDisabler: %s" % bundle_id,
                                "PayloadIdentifier": options.profile_id + '.' + appname,
                               }
                 whole.update(extend_dict)
-
                 mobilecfg_path = ('').join([os.getcwd(), '/disable_autoupdates_',
                                             bundle_id.split('.')[-1], '.mobileconfig'])
                 with open(mobilecfg_path, 'w') as final:
@@ -110,27 +112,24 @@ def main():
     if not to_process:
         print parser.print_help()
         sys.exit(0)
-    mobilecfg_path, whole = '', ''
-    if options.group:
-        mobilecfg_path = ('').join([os.getcwd(), '/disable_all_sparkle_',
-                                    'autoupdates.mobileconfig'])
-        payload_list = []
+    payload_list = {}
     for bundle_id in to_process:
         #gen uuid's for containing profile and payload
         appname = bundle_id.split('.')[-1]
-        if options.group:
-            in_uuid = str(uuid.uuid4())
-            payload_id = ('').join(["SparkleDisabler.", out_uuid,
-                                   ".alacarte.customsettings.", in_uuid])
-            payload = build_payload(bundle_id, payload_id, in_uuid)
-            payload_list.append(payload)
-        else:
+        payload = build_payload(bundle_id)
+        if not options.group:
             in_uuid, out_uuid = str(uuid.uuid4()), str(uuid.uuid4())
             payload_id = ('').join(["SparkleDisabler.", out_uuid,
                                ".alacarte.customsettings.", in_uuid])
-            payload = build_payload(bundle_id, payload_id, in_uuid)
-            whole = integrate_whole(payload, options.profile_id,
-                                    options.org, out_uuid)
+            payload_dict = {"PayloadContent": payload,
+                            "PayloadEnabled": True,
+                            "PayloadIdentifier": payload_id,
+                            "PayloadType": "com.apple.ManagedClient.preferences",
+                            "PayloadUUID": in_uuid,
+                            "PayloadVersion": 1,
+                           }
+            inside_dict = [payload_dict]
+            whole = integrate_whole(inside_dict, options.org, out_uuid)
             extend_dict = {"PayloadDescription": "Custom settings to disable "
                            "sparkle updates for %s.app" % appname,
                            "PayloadDisplayName": "SparkleDisabler: %s" % bundle_id,
@@ -141,13 +140,21 @@ def main():
                                        bundle_id.split('.')[-1], '.mobileconfig'])
             with open(mobilecfg_path, 'w') as final:
                 plistlib.writePlist(whole, final)
+
+        else:
+            payload_list[bundle_id] = payload
     if options.group:
-        whole = integrate_whole(payload_list, options.profile_id,
-                                options.org, out_uuid)
+        mobilecfg_path = ('').join([os.getcwd(), '/disable_all_sparkle_',
+                            'autoupdates.mobileconfig'])
+        in_uuid, out_uuid = str(uuid.uuid4()), str(uuid.uuid4())
+        payload_id = ('').join(["SparkleDisabler.", out_uuid,
+                               ".alacarte.customsettings.", in_uuid])
+
+        whole = integrate_whole(payload_list, options.org, out_uuid)
         extend_dict = {"PayloadDescription": "Custom settings to disable "
                        "all sparkle apps from updating over http",
                        "PayloadDisplayName": "ExtinguishGeneratedSparkleDisabler",
-                       "PayloadIdentifier": options.profile_id
+                       "PayloadIdentifier": payload_id
                       }
         whole.update(extend_dict)
         with open(mobilecfg_path, 'w') as final:
