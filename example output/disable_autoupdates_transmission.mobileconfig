@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>org.m0k.transmission</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>SUAutomaticallyUpdate</key>
+								<false/>
+								<key>SUEnableAutomaticChecks</key>
+								<false/>
+								<key>SUFeedURL</key>
+								<string>https://127.0.0.1</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>SparkleDisabler.c2d13df8-a4a4-4c4e-8826-13802233fe77.alacarte.customsettings.9e32d945-c62e-4f32-a22f-c8d9688b3851</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>9e32d945-c62e-4f32-a22f-c8d9688b3851</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Custom settings to disable sparkle updates for transmission.app</string>
+	<key>PayloadDisplayName</key>
+	<string>SparkleDisabler: org.m0k.transmission</string>
+	<key>PayloadIdentifier</key>
+	<string>com.github.arubdesu.extinguish.transmission</string>
+	<key>PayloadOrganization</key>
+	<string></string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>c2d13df8-a4a4-4c4e-8826-13802233fe77</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

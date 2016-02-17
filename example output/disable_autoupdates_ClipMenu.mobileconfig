@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>com.naotaka.ClipMenu</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>SUAutomaticallyUpdate</key>
+								<false/>
+								<key>SUEnableAutomaticChecks</key>
+								<false/>
+								<key>SUFeedURL</key>
+								<string>https://127.0.0.1</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>SparkleDisabler.78c694d7-18e2-4fa4-bf5a-5b768542eb18.alacarte.customsettings.80f7c13a-ebbe-46c7-8d20-7046559fc41f</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>80f7c13a-ebbe-46c7-8d20-7046559fc41f</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Custom settings to disable sparkle updates for ClipMenu.app</string>
+	<key>PayloadDisplayName</key>
+	<string>SparkleDisabler: com.naotaka.ClipMenu</string>
+	<key>PayloadIdentifier</key>
+	<string>com.github.arubdesu.extinguish.ClipMenu</string>
+	<key>PayloadOrganization</key>
+	<string></string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>78c694d7-18e2-4fa4-bf5a-5b768542eb18</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

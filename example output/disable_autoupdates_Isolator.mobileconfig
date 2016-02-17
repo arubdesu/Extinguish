@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>eu.willmore.Isolator</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>SUAutomaticallyUpdate</key>
+								<false/>
+								<key>SUEnableAutomaticChecks</key>
+								<false/>
+								<key>SUFeedURL</key>
+								<string>https://127.0.0.1</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>SparkleDisabler.5ffbff53-dc32-44ad-830a-ff3c32962f1d.alacarte.customsettings.a26d972b-ed72-442a-a4e7-5f0194b9d892</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>a26d972b-ed72-442a-a4e7-5f0194b9d892</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Custom settings to disable sparkle updates for Isolator.app</string>
+	<key>PayloadDisplayName</key>
+	<string>SparkleDisabler: eu.willmore.Isolator</string>
+	<key>PayloadIdentifier</key>
+	<string>com.github.arubdesu.extinguish.Isolator</string>
+	<key>PayloadOrganization</key>
+	<string></string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>5ffbff53-dc32-44ad-830a-ff3c32962f1d</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

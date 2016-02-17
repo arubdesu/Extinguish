@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>net.freemacsoft.AppCleaner</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>SUAutomaticallyUpdate</key>
+								<false/>
+								<key>SUEnableAutomaticChecks</key>
+								<false/>
+								<key>SUFeedURL</key>
+								<string>https://127.0.0.1</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>SparkleDisabler.4628d5b0-7d6a-4bbb-a1fe-945b7483429f.alacarte.customsettings.e4d22ea4-075d-4a68-b6e9-9b0544789d70</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>e4d22ea4-075d-4a68-b6e9-9b0544789d70</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Custom settings to disable sparkle updates for AppCleaner.app</string>
+	<key>PayloadDisplayName</key>
+	<string>SparkleDisabler: net.freemacsoft.AppCleaner</string>
+	<key>PayloadIdentifier</key>
+	<string>com.github.arubdesu.extinguish.AppCleaner</string>
+	<key>PayloadOrganization</key>
+	<string></string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>4628d5b0-7d6a-4bbb-a1fe-945b7483429f</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

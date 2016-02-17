@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>com.fluidapp.Fluid</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>SUAutomaticallyUpdate</key>
+								<false/>
+								<key>SUEnableAutomaticChecks</key>
+								<false/>
+								<key>SUFeedURL</key>
+								<string>https://127.0.0.1</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>SparkleDisabler.3ffb8f82-961b-426b-b8fc-4bc8195e9558.alacarte.customsettings.eaaad41d-55f6-48a2-89c0-df879119304f</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>eaaad41d-55f6-48a2-89c0-df879119304f</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Custom settings to disable sparkle updates for Fluid.app</string>
+	<key>PayloadDisplayName</key>
+	<string>SparkleDisabler: com.fluidapp.Fluid</string>
+	<key>PayloadIdentifier</key>
+	<string>com.github.arubdesu.extinguish.Fluid</string>
+	<key>PayloadOrganization</key>
+	<string></string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>3ffb8f82-961b-426b-b8fc-4bc8195e9558</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
