@@ -5,15 +5,15 @@ Generates configuration profiles to set Sparkle-updater-enabled apps off by defa
 ### Usage
 Download from releases, unpack, and use it on the command line in any of these three ways:
 
-- `~/Downloads/Extinguish-0.2/extinguish.py /Applications/VLC.app`
+- `~/Downloads/Extinguish-0.3/extinguish.py /Applications/VLC.app`
 
 By dragging the path to any affected app into the terminal window, this will generate a single profile in the root of your home folder (or whatever the current directory is you're working in) called `disable_autoupdates_VLC.app`.
 
-- `~/Downloads/Extinguish-0.2/extinguish.py -a com.mactrackerapp.Mactracker -a com.fluidapp.Fluid`
+- `~/Downloads/Extinguish-0.3/extinguish.py -a com.mactrackerapp.Mactracker -a com.fluidapp.Fluid`
 
 This will generate two separate profiles with naming like the VLC example above.
 
-- `~/Downloads/Extinguish-0.2/extinguish.py -g True -a com.mactrackerapp.Mactracker -a com.fluidapp.Fluid`
+- `~/Downloads/Extinguish-0.3/extinguish.py -g True -a com.mactrackerapp.Mactracker -a com.fluidapp.Fluid`
 
 This will generate a single profile called `disable_all_sparkle_autoupdates.mobileconfig` containing payloads which will disable all apps specified in one shot.
 
