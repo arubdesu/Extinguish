@@ -19,6 +19,9 @@ This will generate a single profile called `disable_all_sparkle_autoupdates.mobi
 
 *Note*, it's a little naïve about naming the resulting file(s) based on the last section in the bundle identifier, and bundle ID's with spaces in them need to be quoted.
 
+To sign the profiles (if you're crazy like me and care about those things...) you can use https://github.com/nmcspadden/ProfileSigner.
 
 #### NOTICE - **You still need to test the effectiveness of the profiles created!** In many cases, this _will not be enough_!
 Please see a tool like Tim Sutton's [mcxToProfile](https://github.com/timsutton/mcxToProfile) and follow the workflow that tool provides to collect the appropriate keys for an app that does not work with Extinguish out-of-the-box, or edit the profile generated on your own.
+
+_Thanks to @homebysix for the icon!_
