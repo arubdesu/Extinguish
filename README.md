@@ -25,3 +25,74 @@ To sign the profiles (if you're crazy like me and care about those things...) yo
 Please see a tool like Tim Sutton's [mcxToProfile](https://github.com/timsutton/mcxToProfile) and follow the workflow that tool provides to collect the appropriate keys for an app that does not work with Extinguish out-of-the-box, or edit the profile generated on your own.
 
 _Thanks to @homebysix for the icon!_
+
+### Create a PLIST for Use with JSS / JAMF
+
+If you want to be able to push profiles made from Extinguish through your JSS rather than install them manually or package them up, you'll need to create a .plist.  The data you need to do this is already in the .mobileconfig profile.
+
+If you plan on combining preferences for multiple applications, you'll need to create a .plist for each app.  You can then combine these PLISTs into a single configuration profile on your JSS (if you wish).
+
+01. Create your Extinguish .mobileconfig file.
+02. Open Terminal and read the contents of the .mobileconfig file:
+
+- `cat /path/to/profile.mobileconfig`
+
+03. Note the `<key>` text directly below the `<key>PayloadContent</key>`
+
+_Example - VLC_
+```
+<key>PayloadContent</key>
+<dict>
+    <key>org.videolan.vlc</key>
+```
+
+04. With a program like BBEdit, Sublime, or other editor, create a new file with the following basic PLIST data:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+</dict>
+</plist>
+```
+
+05. Insert the key/value pairs for each preference from the .mobileconfig file below the `<key>mcx_preference_setting</key>` in between `<dict></dict>` in your PLIST file:
+
+_Example - VLC_
+```
+<key>mcx_preference_setting</key>
+<dict>
+    <key>SUAutomaticallyUpdate</key>
+    <false/>
+    <key>SUEnableAutomaticChecks</key>
+    <false/>
+    <key>SUFeedURL</key>
+    <string>https://127.0.0.1</string>
+</dict>
+```
+
+06. The final PLIST should look something like the following:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>SUAutomaticallyUpdate</key>
+    <false/>
+    <key>SUEnableAutomaticChecks</key>
+    <false/>
+    <key>SUFeedURL</key>
+    <string>https://127.0.0.1</string>
+</dict>
+</plist>
+```
+
+07. Save your PLIST file with the name you found below the `<key>PayloadContent</key>` from step 3 followed by a .plist
+
+_Example - VLC_
+* org.videolan.vlc.plist
+
+08. Now you have a PLIST file with the necessary preferences to disable Sparkle updates.  Upload your PLIST(s) to a JSS configuration profile using the Custom Settings payload and test it!
+
+![JSS Config Profile](jss_config_profile_example_vlc.png)
