@@ -33,7 +33,7 @@ If you want to be able to push profiles made through Extinguish into your JSS ra
 If you plan on combining preferences for multiple applications, you'll need to create a .plist for each app.  You can then combine those PLISTs into a single configuration profile on your JSS.
 
 01. Create your Extinguish .mobileconfig file.
-02. Open Terminal and read contents of the .mobileconfig file:
+02. Open Terminal and read the contents of the .mobileconfig file:
 
 - `cat /path/to/profile.mobileconfig`
 
