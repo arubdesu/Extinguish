@@ -28,9 +28,9 @@ _Thanks to @homebysix for the icon!_
 
 ### Create a PLIST for Use with JSS / JAMF
 
-If you want to be able to push profiles made through Extinguish into your JSS rather than install them manually or package them up, you'll need to create a .plist.
+If you want to be able to push profiles made from Extinguish through your JSS rather than install them manually or package them up, you'll need to create a .plist.  The data you need to do this is already in the .mobileconfig profile.
 
-If you plan on combining preferences for multiple applications, you'll need to create a .plist for each app.  You can then combine those PLISTs into a single configuration profile on your JSS.
+If you plan on combining preferences for multiple applications, you'll need to create a .plist for each app.  You can then combine these PLISTs into a single configuration profile on your JSS (if you wish).
 
 01. Create your Extinguish .mobileconfig file.
 02. Open Terminal and read the contents of the .mobileconfig file:
