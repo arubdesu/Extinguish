@@ -94,3 +94,5 @@ _Example - VLC_
 * org.videolan.vlc.plist
 
 08. Now you have a PLIST file with the necessary preferences to disable Sparkle updates.  Upload your PLIST(s) to a JSS configuration profile using the Custom Settings payload and test it!
+
+![JSS Config Profile](jss_config_profile_example_vlc.png)
