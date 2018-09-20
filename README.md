@@ -1,6 +1,6 @@
 # ![Extinguish](extinguish.png)
 
-Generates configuration profiles to set Sparkle-updater-enabled apps off by default. Inspired by Ben Toms [post on the Sparkle fiasco](https://macmule.com/2016/01/31/sparkle-updater-framework-http-man-in-the-middle-vulnerability/), [Nate Walck's Chef-driven version](https://github.com/natewalck/ChefExamples2016/blob/master/cookbooks/disablesparkle/recipes/default.rb), and [Greg Neagle's profiles](https://github.com/gregneagle/profiles/tree/master/autoupdate_disablers). Some sample profiles I generated with the tool can be found in the 'example output' folder.
+Generates configuration profiles to set Sparkle-updater-enabled apps off by default. Inspired by Ben Toms [post on the Sparkle fiasco](https://macmule.com/2016/01/31/sparkle-updater-framework-http-man-in-the-middle-vulnerability/), Nate Walck's Chef-driven version, and [Greg Neagle's profiles](https://github.com/gregneagle/profiles/tree/master/autoupdate_disablers). Some sample profiles I generated with the tool can be found in the 'example output' folder.
 
 ### Usage
 Download from releases, unpack, and use it on the command line in any of these three ways:
