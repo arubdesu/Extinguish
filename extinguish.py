@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Copyright 2016 Allister Banks
 #
@@ -30,7 +30,6 @@ import os
 import plistlib
 import sys
 import uuid
-
 
 def build_payload(bundle_id):
     """populates payload with bundle_id, returns array"""
@@ -70,7 +69,7 @@ def integrate_whole(payload, org, out_uuid, group):
 
 def main():
     """gimme some main"""
-    parser = argparse.ArgumentParser(add_help=True, version='0.1',
+    parser = argparse.ArgumentParser(add_help=True,
                                      description='Either drag-drop the path to '
                                      'an app bundle into the terminal window, '
                                      'or use "-a" and the CFBundleIdentifier value from an app.')
@@ -92,6 +91,7 @@ def main():
                         help='Used as identifier for payload id in reverse-domain format. '
                              'Uses "com.github.arubdesu.extinguish" by default',
                        )
+    parser.add_argument('-v', '--version', action='version', version='0.2')
     options = parser.parse_args()
     #build_payload, handling one-off drag-drops first
     out_uuid = str(uuid.uuid4())
@@ -122,19 +122,19 @@ def main():
                 whole.update(extend_dict)
                 mobilecfg_path = ''.join([os.getcwd(), '/disable_autoupdates_',
                                             bundle_id.split('.')[-1], '.mobileconfig'])
-                with open(mobilecfg_path, 'w') as final:
-                    plistlib.writePlist(whole, final)
+                with open(mobilecfg_path, 'wb') as final:
+                    plistlib.dump(whole, final)
                 sys.exit(0)
             except OSError:
-                print 'Info.plist not found, exiting'
+                print('Info.plist not found, exiting')
                 sys.exit(1)
         else:
-            print 'Not recognized as an app bundle, exiting'
-            print parser.print_help()
+            print('Not recognized as an app bundle, exiting')
+            print(parser.print_help())
             sys.exit(1)
     to_process = options.apps
     if not to_process:
-        print parser.print_help()
+        print(parser.print_help())
         sys.exit(0)
     payload_list = {}
     for bundle_id in to_process:
@@ -162,8 +162,8 @@ def main():
             whole.update(extend_dict)
             mobilecfg_path = ''.join([os.getcwd(), '/disable_autoupdates_',
                                        bundle_id.split('.')[-1], '.mobileconfig'])
-            with open(mobilecfg_path, 'w') as final:
-                plistlib.writePlist(whole, final)
+            with open(mobilecfg_path, 'wb') as final:
+                plistlib.dump(whole, final)
 
         else:
             payload_list[bundle_id] = payload[bundle_id]
@@ -182,8 +182,8 @@ def main():
                        "PayloadIdentifier": payload_id
                       }
         whole.update(extend_dict)
-        with open(mobilecfg_path, 'w') as final:
-            plistlib.writePlist(whole, final)
+        with open(mobilecfg_path, 'wb') as final:
+            plistlib.dump(whole, final)
 
 
 if __name__ == '__main__':
