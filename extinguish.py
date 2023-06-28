@@ -25,11 +25,11 @@ Add the '-g or --group' option to make one big profile for all affected apps.
 Optionally specify your org and/or an identifier(like a github acct).
 """
 import argparse
-import CoreFoundation
 import os
 import plistlib
 import sys
 import uuid
+import CoreFoundation
 
 def build_payload(bundle_id):
     """populates payload with bundle_id, returns array"""
@@ -54,8 +54,6 @@ def integrate_whole(payload, org, out_uuid, group):
                   "PayloadVersion": 1,
                   }
         payload = [nested]
-    else:
-        payload = payload
     finished_profile = {"PayloadContent": payload,
                         "PayloadOrganization": org,
                         "PayloadRemovalDisallowed": True,
@@ -99,7 +97,7 @@ def main():
     if options.app_bundle:
         if options.app_bundle.endswith('.app'):
             try:
-                infoplist_path = (options.app_bundle + '/Contents/Info.plist')
+                infoplist_path = options.app_bundle + '/Contents/Info.plist'
                 bundle_id = CoreFoundation.CFPreferencesCopyAppValue("CFBundleIdentifier", infoplist_path)
                 appname = bundle_id.split('.')[-1]
                 in_uuid = str(uuid.uuid4())
@@ -115,8 +113,8 @@ def main():
                 inside_dict = [payload_dict]
                 whole = integrate_whole(inside_dict, options.org, out_uuid, group)
                 extend_dict = {"PayloadDescription": "Custom settings to disable "
-                               "sparkle updates for %s.app" % appname,
-                               "PayloadDisplayName": "SparkleDisabler: %s" % bundle_id,
+                               f"sparkle updates for {appname}.app",
+                               "PayloadDisplayName": f"SparkleDisabler: {bundle_id}",
                                "PayloadIdentifier": options.profile_id + '.' + appname,
                               }
                 whole.update(extend_dict)
@@ -155,8 +153,8 @@ def main():
             inside_dict = [payload_dict]
             whole = integrate_whole(inside_dict, options.org, out_uuid, group)
             extend_dict = {"PayloadDescription": "Custom settings to disable "
-                           "sparkle updates for %s.app" % appname,
-                           "PayloadDisplayName": "SparkleDisabler: %s" % bundle_id,
+                           f"sparkle updates for {appname}.app" % appname,
+                           "PayloadDisplayName": f"SparkleDisabler: {bundle_id}",
                            "PayloadIdentifier": options.profile_id + '.' + appname,
                           }
             whole.update(extend_dict)
